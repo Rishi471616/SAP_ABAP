@@ -1,0 +1,15 @@
+*&---------------------------------------------------------------------*
+*& Report ZHELLO_WORLD
+*&---------------------------------------------------------------------*
+*&
+*&--------------------------------------------------------------------
+REPORT hello_world.
+
+DATA lv_input1(2) TYPE n VALUE 10. "first input.
+DATA lv_input2(2) TYPE n VALUE 20. "second input.
+DATA lv_output(3) TYPE n.
+
+
+lv_output = lv_input1 + lv_input2.
+
+WRITE lv_output.
