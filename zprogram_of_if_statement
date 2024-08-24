@@ -12,3 +12,6 @@ ENDIF
 
 
 OUTPUT - 01
+
+
+*if condition is false then there is no output in this case.
