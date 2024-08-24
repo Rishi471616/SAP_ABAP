@@ -1,0 +1,14 @@
+*&---------------------------------------------------------------------*
+*& Report ZPROGRAM_OF_IF_STATEMENT
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zprogram_of_if_statement.
+
+DATA lv_input(2) TYPE n VALUE 1.
+IF lv input = 1.
+  WRITE : 'the output is' , lv_input.
+ENDIF
+
+
+OUTPUT - 01
