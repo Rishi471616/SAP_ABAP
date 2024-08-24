@@ -14,8 +14,18 @@ DO 10 TIMES.
   lv_input = lv_input + 1.
 ENDDO.
 
+*Second syntax
+DO .
+  IF lv_input = 15.
+    EXIT. "exit statement helps us to Exit from the current loop.
+  ENDIF.
+  WRITE :/'the output is' ,lv_input.
 
-OUTPUT - the output is 10
+  lv_input = lv_input + 1.
+ENDDO.
+
+
+OUTPUT 1- the output is 10
          the output is 11
          the output is 12
          the output is 13
@@ -25,4 +35,10 @@ OUTPUT - the output is 10
          the output is 17
          the output is 19
          the output is 17
+
+OUTPUT 2- the output is 10
+         the output is 11
+         the output is 12
+         the output is 13
+         the output is 14
 
