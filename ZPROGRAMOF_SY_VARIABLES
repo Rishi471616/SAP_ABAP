@@ -10,4 +10,5 @@ WRITE : 'The name of the User is' , sy-uname.
 DO 10 TIMES.
   WRITE : / sy-index , sy-tabix.
 ENDDO.
-WRITE : / sy-index , sy-datum.
+WRITE : /'Thecurrent date is ' , sy-datum
+WRITE : /'The current time is ' , sy-uzeit.
