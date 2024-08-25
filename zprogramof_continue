@@ -1,0 +1,20 @@
+REPORT zprogramof_continue.
+
+DATA lv_input(2) TYPE n VALUE 10.
+
+
+DO 10 TIMES.
+  IF lv_input = 14.
+    CONTINUE.
+  ENDIF.
+  WRITE :/'the output is' ,lv_input.
+  lv_input = lv_input + 1.
+ENDDO.
+
+OUTPUT -the output is 10 
+        the output is 11 
+        the output is 12 
+        the output is 13
+        the output is 14 
+
+
