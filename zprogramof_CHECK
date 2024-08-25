@@ -1,0 +1,12 @@
+DATA lv_input(2) TYPE n VALUE 10.
+
+
+DO 10 TIMES.
+
+  lv_input = lv_input + 1 .
+  CHECK lv_input = 15.
+  WRITE :/'the output is' ,lv_input.
+
+ENDDO.
+
+OUTPUT - the output is 15
