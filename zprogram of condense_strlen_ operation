@@ -1,0 +1,24 @@
+data lv_input type string value '    Welcome     to    home   '.
+data lv_length(2) type n.
+
+lv_length = strlen( lv_input ).
+
+write : / 'The length before condense', lv_length.
+
+write : / 'Before condense : ' , lv_input.
+
+condense lv_input.
+
+lv_length = strlen( lv_input ).
+write : / 'The length before condense', lv_length.
+
+write : / 'Before condense : ' , lv_input.
+
+condense lv_input no-gaps.
+
+OUTPUT- The length before condense 26 
+        Before condense :     Welcome     to    home   
+        The length before condense 15
+        Before condense : Welcome to home  
+
+
