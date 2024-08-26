@@ -1,0 +1,17 @@
+*&---------------------------------------------------------------------*
+*& Report ZPROGRAM_OF_STRING_OPERATION
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zprogram_of_string_operation.
+
+
+DATA : lv_input1(10) TYPE c VALUE 'welcome',
+       lv_input2(10) TYPE c VALUE 'TO',
+       lv_input3(10) TYPE c VALUE 'LONDON',
+       lv_output     TYPE string.
+
+
+CONCATENATE lv_input1 lv_input2 lv_input3 INTO lv_output SEPARATED BY ' '.
+
+WRITE : 'The result is : ', lv_output.
