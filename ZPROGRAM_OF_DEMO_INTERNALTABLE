@@ -1,0 +1,75 @@
+*&---------------------------------------------------------------------*
+*& Report ZPROGRAM_OF_DEMO_INTERNALTABLE
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zprogram_of_demo_internaltable.
+
+TYPES:BEGIN OF lty_data,
+        student_id TYPE zstudent_id,
+        stu_name   TYPE zstudent_name,
+      END OF lty_data.
+
+DATA : lt_data TYPE TABLE OF lty_data.
+DATA : lwa_data TYPE lty_data.
+DATA : lv_lines TYPE i.
+
+lwa_data-student_id = 2.
+lwa_data-stu_name = 'Rishi'.
+APPEND  lwa_data TO lt_data.
+CLEAR : lwa_data.
+
+
+
+lwa_data-student_id = 1.
+lwa_data-stu_name = 'manoj'.
+APPEND  lwa_data TO lt_data.
+CLEAR : lwa_data.
+
+
+lwa_data-student_id = 6.
+lwa_data-stu_name = 'aakash'.
+APPEND  lwa_data TO lt_data.
+CLEAR : lwa_data.
+
+lwa_data-student_id = 4.
+lwa_data-stu_name = 'RAVI'.
+APPEND  lwa_data TO lt_data.
+CLEAR : lwa_data.
+
+SORT lt_data BY student_id DESCENDING stu_name DESCENDING.
+
+LOOP AT lt_data INTO lwa_data.
+  WRITE : / lwa_data-student_id, lwa_data-stu_name.
+ENDLOOP.
+
+
+*WRITE : / lv_lines.
+*
+*CLEAR : lt_data.
+*REFRESH : lt_data.
+
+*DESCRIBE TABLE lt_data LINES lv_lines.
+*
+*WRITE : / lv_lines.DESCRIBE TABLE lt_data LINES lv_lines.
+
+
+
+*READ TABLE lt_data INTO lwa_data WITH KEY student_id = 4.
+*IF SY-SUBRC = 0.
+*  WRITE : / lwa_data-student_id , lwa_data-stu_name.
+*ELSE.
+*  WRITE : 'Unsuccessful'.
+*ENDIF.
+
+*LOOP AT lt_data INTO lwa_data.
+*  IF lwa_data-student_id = 4.
+*    lwa_data-stu_name = 'kanchan'.
+*    MODIFY lt_data FROM lwa_data TRANSPORTING stu_name.
+*  ENDIF.
+*ENDLOOP.
+
+
+
+*DELETE lt_data WHERE student_id = 4.
+*
