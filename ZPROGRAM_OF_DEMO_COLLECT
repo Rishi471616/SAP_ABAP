@@ -1,0 +1,58 @@
+*&---------------------------------------------------------------------*
+*& Report ZPROGRAM_OF_DEMO_COLLECT
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zprogram_of_demo_collect.
+
+
+TYPES : BEGIN OF lty_data,
+          cname(3) TYPE c,
+          dept(10) TYPE c,
+          amount   TYPE zamount,
+        END OF lty_data.
+
+DATA : lt_data TYPE TABLE OF lty_data.
+DATA : lwa_data TYPE lty_data.
+DATA : lt_temp_data TYPE TABLE OF lty_data.
+
+lwa_data-cname ='ABC'.
+lwa_data-dept = 'ADMIN'.
+lwa_data-amount = '10000'.
+APPEND lwa_data TO lt_data.
+CLEAR  : lwa_data.
+
+
+lwa_data-cname ='ABC'.
+lwa_data-dept = 'ADMIN'.
+lwa_data-amount = '20000'.
+APPEND lwa_data TO lt_data.
+CLEAR  : lwa_data.
+
+lwa_data-cname ='ABC'.
+lwa_data-dept = 'HR'.
+lwa_data-amount = '10000'.
+APPEND lwa_data TO lt_data.
+CLEAR  : lwa_data.
+
+lwa_data-cname ='ABC'.
+lwa_data-dept = 'ADMIN'.
+lwa_data-amount = '10000'.
+APPEND lwa_data TO lt_data.
+CLEAR  : lwa_data.
+
+lwa_data-cname ='ABC'.
+lwa_data-dept = 'TRAINNG'.
+lwa_data-amount = '20000'.
+APPEND lwa_data TO lt_data.
+CLEAR  : lwa_data.
+
+LOOP AT lt_data INTO lwa_data.
+  COLLECT lwa_data INTO lt_temp_data.
+
+ENDLOOP.
+
+LOOP AT lt_temp_data INTO lwa_data.
+  WRITE : / lwa_data-cname, lwa_data-dept, lwa_data-amount.
+
+ENDLOOP.
