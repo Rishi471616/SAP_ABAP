@@ -1,0 +1,43 @@
+*&---------------------------------------------------------------------*
+*& Report ZPROGRAM_OF_DEMO_INTERNALTAB
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zprogram_of_demo_internaltab.
+
+
+TYPES:BEGIN OF lty_data,
+        student_id TYPE zstudent_id,
+        stu_name   TYPE zstudent_name,
+      END OF lty_data.
+
+DATA : lt_data TYPE TABLE OF lty_data.
+DATA : lwa_data TYPE lty_data.
+DATA : lv_lines TYPE i.
+
+lwa_data-student_id = 2.
+lwa_data-stu_name = 'Rishi'.
+INSERT lwa_data INTO TABLE lt_data.
+CLEAR : lwa_data.
+
+
+
+lwa_data-student_id = 1.
+lwa_data-stu_name = 'manoj'.
+INSERT lwa_data INTO TABLE lt_data.
+CLEAR : lwa_data.
+
+
+lwa_data-student_id = 6.
+lwa_data-stu_name = 'aakash'.
+INSERT lwa_data INTO lt_data INDEX 3.
+CLEAR : lwa_data.
+
+lwa_data-student_id = 4.
+lwa_data-stu_name = 'RAVI'.
+INSERT lwa_data INTO TABLE lt_data.
+CLEAR : lwa_data.
+
+LOOP AT lt_data INTO lwa_data.
+  WRITE : / lwa_data-student_id, lwa_data-stu_name.
+ENDLOOP.
