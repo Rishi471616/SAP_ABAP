@@ -1,0 +1,29 @@
+*&---------------------------------------------------------------------*
+*& Report ZPROGRAM_OF_PARAMETERS
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+REPORT zprogram_of_parameters.
+
+DATA : lv_ono(10) TYPE c.
+
+
+SELECTION-SCREEN : BEGIN OF BLOCK b1 WITH FRAME TITLE TEXT-000.
+  SELECT-OPTIONS : s_ono FOR lv_ono.
+  PARAMETERS : p_no TYPE zstudent_id .  "DEFAULT 1.
+  SELECTION-SCREEN : BEGIN OF LINE.
+    PARAMETERS : p_r1 TYPE c RADIOBUTTON GROUP r1.
+    SELECTION-SCREEN : COMMENT 3(3) TEXT-001.
+    PARAMETERS : p_r2 TYPE c RADIOBUTTON GROUP r1 DEFAULT 'X'.
+    SELECTION-SCREEN : COMMENT 9(11) TEXT-002.
+    PARAMETERS : p_r3 TYPE c RADIOBUTTON GROUP r1.
+    SELECTION-SCREEN : COMMENT 23(6) TEXT-003.
+  SELECTION-SCREEN : END OF LINE.
+  SELECTION-SCREEN : BEGIN OF LINE.
+    PARAMETERS : p_chk AS CHECKBOX.
+    PARAMETERS : p_chk1 AS CHECKBOX.
+  SELECTION-SCREEN : END OF LINE.
+SELECTION-SCREEN : END OF BLOCK b1.
+
+
+WRITE : 1.
